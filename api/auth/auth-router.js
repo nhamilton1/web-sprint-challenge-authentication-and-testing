@@ -42,8 +42,7 @@ router.post('/register',
         the response body should include a string exactly as follows: "username taken".
     */
 
-
-  });
+});
 
 router.post('/login', checkUsernameExists, (req, res, next) => {
   if (bcrypt.compareSync(req.body.password, req.user.password)) {
