@@ -1,13 +1,16 @@
 const User = require('../users/users-model')
 
 
-// async function checkUsernameAndPassword(req, res, next) {
-//     try {
-//         const users = 
-//     } catch (err) {
-//         next(err)
-//     }
-// }
+function checkUsernameAndPassword(req, res, next) {
+    const { username, password } = req.body 
+    if(!username || !password ) {
+        res.status(400).json({
+            message: 'username and password required'
+        })
+    } else {
+        next()
+    }
+}
 
 async function checkUsernameFree(req, res, next) {
     try {
@@ -44,6 +47,7 @@ const checkUsernameExists = async (req, res, next) => {
 
 
 module.exports = {
+    checkUsernameAndPassword,
     checkUsernameFree,
     checkUsernameExists,
 }
