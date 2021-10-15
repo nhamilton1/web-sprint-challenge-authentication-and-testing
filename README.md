@@ -53,6 +53,33 @@ Your finished project must include all of the following requirements (further in
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics.
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
+
+    First, authentication is the process by which our web api verifies a client's id that is trying to access a resource. Sessions provide a way
+    to persist data across requests. when using sessions, each client will have a unique session sotred on the server. You can store session data 
+    in memory. Data stored in memory is wiped when the server restarts. The preferred way os storing sessions is in memory cache. 
+
+    JSON web tokens(JWT) are a way to transmit information between parties in a JSON object. This is most commonly used for authentication. 
+    JWT is a string that is separted by a period(.) first is the header, then payload, and the signature. JWT scales better than that of sessions
+    because tokens are stored on the client while session makes use of the server's memory. 
+
 2. What does `bcryptjs` do to help us store passwords in a secure manner?
+
+    bcrypt allows us to hash passwords before we save them to the database. bcrypt allows us to hash the password(s) multiple rounds, this means attackers
+    need to have the hash, know the algo used, and how many rounds of hashing it went through. 
+
 3. How are unit tests different from integration and end-to-end testing?
+
+    Unit testing is checking to see that a unit works correctly in isolation. It checks that individual, isolated parts
+    of the code work correctly. 
+
+    Integration testing checks how different parts of the application work together. Making sure that different parts of the
+    application work together properly. These are more advanced and challenging to write than unit tests
+
+    End-to-end test looks at the entire user experience. It asks if a user can accomplish an action. It also focuses on UI,
+    it mimics how the user interacts with the UI. 
+
+
 4. How does _Test Driven Development_ change the way we write applications and tests?
+
+    With Test Driven Development(TDD), we first start by writing the tests before the code. The theory is, you can write much higher quality code
+    when you start with the end in mind. 
